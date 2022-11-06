@@ -25,8 +25,8 @@ def main():  # main function This is where the program will be executed
         exit(0)  # exit
 
     for i in range(0, 100):
-        time.sleep(0.025)
-        print("\n[{i}%] Loading...")
+        time.sleep(0.01)
+        print(f"{Fore.green}[{i}%] Loading...", end="\r")
 
     resp = input(f"\nHow many players want to play the game?:{Fore.reset} ")
     if resp.isdecimal():  # input must be integers
