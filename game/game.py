@@ -3,8 +3,8 @@ from rgbprint.color import Color as Fore
 import re as regex
 
 
-lucky_squares = []
-penalty_squares = []
+LUCKY_SQUARES = []
+PENALTY_SQUARES = []
 
 
 # Game's logic to handle n players generated from Player class
@@ -40,7 +40,7 @@ class Game:
 
     def leaderboard(self):  # checks who is on the top and players score
         scores = [player.current_score() for player in self.players]
-        highest_score = max(scores, key=lambda x: x[1])
+        highest_score = max(scores, key=lambda s: s[1])
 
         print(f"\n{Fore.magenta}Leaderboard: Player{highest_score[0]} is leading the game with score of {highest_score[1]}!{Fore.reset}")
         for x in self.players:
@@ -51,14 +51,14 @@ class Game:
     @staticmethod
     def _is_same_squares(squares):
 
-        lucky_squares.extend(squares[0])
-        penalty_squares.extend(squares[1])
+        LUCKY_SQUARES.extend(squares[0])
+        PENALTY_SQUARES.extend(squares[1])
 
-        u1 = set(lucky_squares)
-        u2 = set(penalty_squares)
+        u1 = set(LUCKY_SQUARES)
+        u2 = set(PENALTY_SQUARES)
 
         # check for same number in individual  squares list
-        if len(u1) != len(lucky_squares) or len(u2) != len(penalty_squares):
+        if len(u1) != len(LUCKY_SQUARES) or len(u2) != len(PENALTY_SQUARES):
             return True
 
         elif not u1.isdisjoint(u2):  # check if both sets are not disjoint(unique)
@@ -73,7 +73,7 @@ class Game:
         p = number+1
         pattern = regex.compile(r"(\d{0,2})\s+(\d{0,2})")  # find digits seperated by space
 
-        lucky_square = input(f"\n{Fore.magenta}Player{p} Enter two lucky squares (seperated by space) between \
+        lucky_square = input(f"\n{Fore.cyan}Player{p} Enter two lucky squares (seperated by space) between \
 {Game.MIN_PATH} and {Game.MAX_PATH}: ")
         mo1 = pattern.search(lucky_square)
         penalty_square = input(f"\n{Fore.red}Player{p} Enter two penalty squares (seperated by space) between \
@@ -98,4 +98,3 @@ class Game:
         except Exception as e:
             print(f"\nOops! Seems like Player{player} input something wrong.\nError: {e}.\nExited with error code 1")
             exit(1)
-
