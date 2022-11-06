@@ -9,8 +9,8 @@ in N number of game rooms.
 
 To play the game, install `rgbprint`. 
 Open cmd and type `pip install rgbprint`
-or `pip install -r requirements.txt`.
-After following steps, run `main.py`
+or `pip install -r requirements.txt`
+
 
 
 #### Note: The game still requires improvements.
