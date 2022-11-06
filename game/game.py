@@ -73,7 +73,7 @@ class Game:
         p = number+1
         pattern = regex.compile(r"(\d{0,2})\s+(\d{0,2})")
 
-        lucky_square = input(f"\n{Fore.green}Player{p} Enter two lucky squares (seperated by space) between \
+        lucky_square = input(f"\n{Fore.magenta}Player{p} Enter two lucky squares (seperated by space) between \
     {Game.MIN_PATH} and {Game.MAX_PATH}: ")
         mo1 = pattern.search(lucky_square)
         penalty_square = input(f"\n{Fore.red}Player{p} Enter two penalty squares (seperated by space) between \

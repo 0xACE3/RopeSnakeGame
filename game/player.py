@@ -40,4 +40,4 @@ class Player:
         self.player_history.append(roll)
 
     def __str__(self):  # print player's score
-        return f"Player{self.player}'s Score: {self.current_score()}"
+        return f"Player{self.player}'s Score: {self.current_score()[1]}"
