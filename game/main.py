@@ -24,7 +24,7 @@ def main():  # main function This is where the program will be executed
     if r.strip().lower() == "n":
         exit(0)  # exit
 
-    for i in range(0, 100):
+    for i in range(0, 101):
         time.sleep(0.01)
         print(f"{Fore.green}[{i}%] Loading...", end="\r")
 
