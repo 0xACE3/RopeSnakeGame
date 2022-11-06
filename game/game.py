@@ -71,7 +71,7 @@ class Game:
     @staticmethod
     def _v_input(number):  # filter the wrong input
         p = number+1
-        pattern = regex.compile(r"(\d{0,2})\s+(\d{0,2})")
+        pattern = regex.compile(r"(\d{0,2})\s+(\d{0,2})")  # find digits seperated by space
 
         lucky_square = input(f"\n{Fore.magenta}Player{p} Enter two lucky squares (seperated by space) between \
 {Game.MIN_PATH} and {Game.MAX_PATH}: ")
